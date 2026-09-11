@@ -1,0 +1,34 @@
+{
+  "name": "weather-digest",
+  "version": "1.0.0",
+  "description": "Консольная утилита «Погодный дайджест» на Node.js: получает прогноз через Open-Meteo, выводит в терминал и сохраняет JSON-отчёт.",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "node --test"
+  },
+  "keywords": [
+    "weather",
+    "cli",
+    "node",
+    "open-meteo"
+  ],
+  "author": "ksushapopova <ks.popova.2005@mail.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^9.13.0",
+    "prettier": "^3.3.3"
+  }
+}
