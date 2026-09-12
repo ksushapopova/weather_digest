@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Погодный дайджест — отчёты</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Погодный дайджест</h1>
+    <p>Просмотр сохранённых отчётов из каталога <code>reports/</code>.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <h2>Загрузить отчёт</h2>
+
+      <div class="control-row">
+        <label for="report-file">Файл отчёта:</label>
+        <input type="file" id="report-file" accept="application/json,.json" />
+      </div>
+
+      <div class="control-row">
+        <label for="report-name">…или имя файла (если страница открыта через сервер):</label>
+        <input
+          type="text"
+          id="report-name"
+          placeholder="moskva-2026-09-12.json"
+          autocomplete="off"
+        />
+        <button type="button" id="load-by-name">Загрузить</button>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+    </section>
+
+    <section id="report" class="report" hidden>
+      <h2 id="city-title"></h2>
+      <p id="city-meta" class="meta"></p>
+      <table id="forecast-table">
+        <thead>
+          <tr>
+            <th>Дата</th>
+            <th>Мин °C</th>
+            <th>Макс °C</th>
+            <th>Осадки, мм</th>
+          </tr>
+        </thead>
+        <tbody id="forecast-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
