@@ -24,7 +24,7 @@ async function main() {
     throw err;
   }
 
-   if (args.help) {
+  if (args.help) {
     console.log(getUsage());
     return;
   }
@@ -57,11 +57,7 @@ async function main() {
     }
   }
 
-  if (results.length === 0) {
-    process.exitCode = 1;
-  } else {
-    process.exitCode = 0;
-  }
+  process.exitCode = results.length === 0 ? 1 : 0;
 }
 
 main().catch((err) => {
@@ -70,6 +66,6 @@ main().catch((err) => {
     process.exitCode = err.exitCode;
     return;
   }
-  console.error('Непредвиденная ошибка:', err);
+  console.error(`Непредвиденная ошибка: ${err?.message ?? err}`);
   process.exitCode = 1;
 });
