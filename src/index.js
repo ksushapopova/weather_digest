@@ -23,12 +23,23 @@ async function main() {
     }
     throw err;
   }
-
+  if (args.help) {
    if (args.help) {
+
     console.log(getUsage());
     return;
   }
 
+  console.log('Распарсенные аргументы:');
+  console.log('  cities :', args.cities);
+  console.log('  days   :', args.days);
+  console.log('  noCache:', args.noCache);
+}
+
+main().catch((err) => {
+  console.error('Непредвиденная ошибка:', err);
+  process.exitCode = 1;
+});
   let results;
   let errors;
   try {
